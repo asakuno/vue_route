@@ -1,12 +1,16 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import MainView from '../views/MainView.vue'
 import ArticleView from '../views/ArticleView.vue'
+import PageView from '../views/PageView.vue'
 
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: HomeView
+    name: 'Main',
+    components: {
+      default: MainView,
+      sub: ArticleView
+    }
   },
   {
     path: '/about',
@@ -19,7 +23,22 @@ const routes = [
   {
     path: '/article/:aid',
     name: 'Article',
-    component: ArticleView
+    component: ArticleView,
+    props: true,
+    children: [
+      {
+        path: 'pages/:page_num',
+        name: 'Page',
+        component: PageView,
+        props: true
+      },
+      {
+        path: '',
+        name: 'PageOne',
+        component: PageView,
+        props: { page_num: 1 }
+      }
+    ]
   }
 ]
 

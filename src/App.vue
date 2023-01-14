@@ -1,10 +1,12 @@
 <template>
   <nav>
-    <router-link to="/">Home</router-link> |
+    <router-link to="/">Main</router-link> |
     <router-link to="/about">About</router-link> |
     <router-link to="/article/108">記事：No.108</router-link>
   </nav>
   <router-view/>
+  <hr />
+  <router-view name="sub" />
 </template>
 
 <style lang="scss">
