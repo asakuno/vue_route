@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import MainView from '../views/MainView.vue'
 import ArticleView from '../views/ArticleView.vue'
 import PageView from '../views/PageView.vue'
+import CountView from '../views/CountView.vue'
 
 const routes = [
   {
@@ -39,6 +40,12 @@ const routes = [
         props: { page_num: 1 }
       }
     ]
+  },
+  {
+    path: '/count',
+    name: 'CountView',
+    component: CountView,
+    props: true
   }
 ]
 
